@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TesAmerica.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+69279070d815e1eda586ffb065be16350ab96572")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a552ac15a698de5107115258d58c7d9b3412416")]
 [assembly: System.Reflection.AssemblyProductAttribute("TesAmerica.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TesAmerica.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

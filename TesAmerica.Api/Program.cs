@@ -1,3 +1,5 @@
+using Microsoft.Data.SqlClient;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,13 +9,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-/*
-    var _config = app.Services.GetRequiredService<IConfiguration>();
-    var connectionString = _config.GetConnectionString("DefaultConnection");
+// Configure sql server connection
+var _config = builder.Configuration;
+var connectionStringSection = _config.GetSection("ConnectionStrings");
+var sqlServerConnectionString = connectionStringSection.GetValue<string>("SqlServer");
 
-    // Build the SqlConnection and execute the SQL command
-    SqlConnection conn = new SqlConnection(connectionString)
-*/
+// Build the SqlConnection and execute the SQL command
+SqlConnection conn = new SqlConnection(sqlServerConnectionString);
+builder.Services.AddKeyedTransient<SqlConnection>(conn);
 
 var app = builder.Build();
 

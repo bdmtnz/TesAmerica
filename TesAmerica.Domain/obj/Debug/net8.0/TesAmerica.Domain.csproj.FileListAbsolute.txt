@@ -1,0 +1,12 @@
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Domain\bin\Debug\net8.0\TesAmerica.Domain.deps.json
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Domain\bin\Debug\net8.0\TesAmerica.Domain.dll
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Domain\bin\Debug\net8.0\TesAmerica.Domain.pdb
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Domain\obj\Debug\net8.0\TesAmerica.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Domain\obj\Debug\net8.0\TesAmerica.Domain.AssemblyInfoInputs.cache
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Domain\obj\Debug\net8.0\TesAmerica.Domain.AssemblyInfo.cs
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Domain\obj\Debug\net8.0\TesAmerica.Domain.csproj.CoreCompileInputs.cache
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Domain\obj\Debug\net8.0\TesAmerica.Domain.sourcelink.json
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Domain\obj\Debug\net8.0\TesAmerica.Domain.dll
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Domain\obj\Debug\net8.0\refint\TesAmerica.Domain.dll
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Domain\obj\Debug\net8.0\TesAmerica.Domain.pdb
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Domain\obj\Debug\net8.0\ref\TesAmerica.Domain.dll
