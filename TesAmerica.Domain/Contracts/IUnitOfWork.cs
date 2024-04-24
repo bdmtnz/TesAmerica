@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TesAmerica.Domain.Contracts.CustomRepositories;
 
 namespace TesAmerica.Domain.Contracts
 {
@@ -13,12 +14,15 @@ namespace TesAmerica.Domain.Contracts
         Task RollbackAsync();
         void Open();
         void Close();
-        IGenericRepository<Department> DepartmentRepository();
-        IGenericRepository<City> CityRepository();
-        IGenericRepository<Product> ProductRepository();
-        IGenericRepository<Client> ClientRepository();
-        IGenericRepository<Item> ItemRepository();
-        IGenericRepository<Seller> SellerRepository();
-        IGenericRepository<Order> OrderRepository();
+        IGenericRepository<Department> GetDepartmentRepository();
+        IGenericRepository<City> GetCityRepository();
+        IGenericRepository<Product> GetProductRepository();
+        IGenericRepository<Client> GetClientRepository();
+        IGenericRepository<Item> GetItemRepository();
+        IGenericRepository<Seller> GetSellerRepository();
+        IGenericRepository<Order> GetOrderRepository();
+
+        // Custom repos
+        IDepartmentReportRepository GetDepartmentReportRepository();
     }
 }

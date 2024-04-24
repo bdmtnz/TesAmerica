@@ -34,9 +34,9 @@ namespace TesAmerica.Infrastructure.Repositories
             }
         }
 
-        public IEnumerable<Product> FindByForeignKey(string foreignkey)
+        public ICollection<Product> FindByForeignKey(string foreignkey)
         {
-            IEnumerable<Product> result = new List<Product>();
+            ICollection<Product> result = new List<Product>();
             var cmdBuilder = new StringBuilder();
             cmdBuilder.AppendLine("SELECT");
             cmdBuilder.AppendLine(" * ");
@@ -54,7 +54,7 @@ namespace TesAmerica.Infrastructure.Repositories
                         Family = $"{reader["FAMILIA"]}",
                         Price = Convert.ToDouble(reader["PRECIO"])
                     };
-                    result.Append(department);
+                    result.Add(department);
                 }
             }
             return result;
@@ -85,9 +85,9 @@ namespace TesAmerica.Infrastructure.Repositories
             return result;
         }
 
-        public IEnumerable<Product> GetAll()
+        public ICollection<Product> GetAll()
         {
-            IEnumerable<Product> result = new List<Product>();
+            ICollection<Product> result = new List<Product>();
             var cmdBuilder = new StringBuilder();
             cmdBuilder.AppendLine("SELECT");
             cmdBuilder.AppendLine(" * ");
@@ -104,7 +104,7 @@ namespace TesAmerica.Infrastructure.Repositories
                         Family = $"{reader["FAMILIA"]}",
                         Price = Convert.ToDouble(reader["PRECIO"])
                     };
-                    result.Append(department);
+                    result.Add(department);
                 }
             }
             return result;

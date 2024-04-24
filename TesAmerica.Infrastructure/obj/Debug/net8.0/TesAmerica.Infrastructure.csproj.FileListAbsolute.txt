@@ -1,0 +1,16 @@
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\bin\Debug\net8.0\TesAmerica.Infrastructure.deps.json
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\bin\Debug\net8.0\TesAmerica.Infrastructure.dll
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\bin\Debug\net8.0\TesAmerica.Infrastructure.pdb
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\bin\Debug\net8.0\TesAmerica.Domain.dll
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\bin\Debug\net8.0\TesAmerica.Domain.pdb
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\obj\Debug\net8.0\TesAmerica.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\obj\Debug\net8.0\TesAmerica.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\obj\Debug\net8.0\TesAmerica.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\obj\Debug\net8.0\TesAmerica.Infrastructure.AssemblyInfo.cs
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\obj\Debug\net8.0\TesAmerica.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\obj\Debug\net8.0\TesAmerica.Infrastructure.sourcelink.json
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\obj\Debug\net8.0\TesAmerica.Infrastructure.csproj.CopyComplete
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\obj\Debug\net8.0\TesAmerica.Infrastructure.dll
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\obj\Debug\net8.0\refint\TesAmerica.Infrastructure.dll
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\obj\Debug\net8.0\TesAmerica.Infrastructure.pdb
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Infrastructure\obj\Debug\net8.0\ref\TesAmerica.Infrastructure.dll

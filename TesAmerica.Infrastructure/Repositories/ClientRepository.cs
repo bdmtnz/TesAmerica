@@ -40,9 +40,9 @@ namespace TesAmerica.Infrastructure.Repositories
             }
         }
 
-        public IEnumerable<Client> FindByForeignKey(string foreignkey)
+        public ICollection<Client> FindByForeignKey(string foreignkey)
         {
-            IEnumerable<Client> result = new List<Client>();
+            ICollection<Client> result = new List<Client>();
             var cmdBuilder = new StringBuilder();
             cmdBuilder.AppendLine("SELECT");
             cmdBuilder.AppendLine(" * ");
@@ -53,7 +53,7 @@ namespace TesAmerica.Infrastructure.Repositories
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    result.Append(new Client
+                    result.Add(new Client
                     {
                         Id = $"{reader["CODCLI"]}",
                         Address = $"{reader["DIRECCION"]}",
@@ -102,9 +102,9 @@ namespace TesAmerica.Infrastructure.Repositories
             return result;
         }
 
-        public IEnumerable<Client> GetAll()
+        public ICollection<Client> GetAll()
         {
-            IEnumerable<Client> result = new List<Client>();
+            ICollection<Client> result = new List<Client>();
             var cmdBuilder = new StringBuilder();
             cmdBuilder.AppendLine("SELECT");
             cmdBuilder.AppendLine(" * ");
@@ -127,7 +127,7 @@ namespace TesAmerica.Infrastructure.Repositories
                         Quota = Convert.ToInt32(reader["CUPO"]),
                         SellerId = $"{reader["VENDEDOR"]}"
                     };
-                    result.Append(client);
+                    result.Add(client);
                 }
             }
             return result;

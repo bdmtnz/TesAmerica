@@ -7,6 +7,13 @@ using TesAmerica.Domain.Base;
 
 namespace TesAmerica.Domain
 {
+    public class DepartmentReport
+    {
+        public string DepartmentId { get; set; }
+        public string DepartmentName { get; set; }
+        public double Sales { get; set; }
+    }
+
     public class Department : IEntity
     {
         /// <summary>

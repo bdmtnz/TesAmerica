@@ -1,4 +1,6 @@
 using Microsoft.Data.SqlClient;
+using TesAmerica.Application;
+using TesAmerica.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,11 +14,13 @@ builder.Services.AddSwaggerGen();
 // Configure sql server connection
 var _config = builder.Configuration;
 var connectionStringSection = _config.GetSection("ConnectionStrings");
-var sqlServerConnectionString = connectionStringSection.GetValue<string>("SqlServer");
+//var sqlServerConnectionString = connectionStringSection.GetSection("SqlServer").Value;
 
-// Build the SqlConnection and execute the SQL command
-SqlConnection conn = new SqlConnection(sqlServerConnectionString);
-builder.Services.AddKeyedTransient<SqlConnection>(conn);
+builder.Services.AddSingleton<IConfigurationSection>(connectionStringSection);
+
+// Layer DI
+builder.Services.AddInfrastructureServices();
+builder.Services.AddApplicationServices();
 
 var app = builder.Build();
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uxAbXC2fu80qPTC1QAeVKXz1RdriqH3s6u43N6ABA4Ofiwuevzzn5F9rUMHCb7tkttfBXPQI/Q30sbc2gqoKxA==",
+  "dgSpecHash": "BaeYIzHWCcDhbCzzEjOfxujm4G1Zh+sNUdCom7EeBndCSUMs9RzMRJF9pxxN06ciaMUWbeG9HfFnxrFJNoi/SQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\bdmtnz\\Documents\\Proyectos\\Cursos\\TesAmerica\\TesAmerica.Infrastructure\\TesAmerica.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,9 @@
     "C:\\Users\\bdmtnz\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\bdmtnz\\.nuget\\packages\\microsoft.data.sqlclient\\5.2.0\\microsoft.data.sqlclient.5.2.0.nupkg.sha512",
     "C:\\Users\\bdmtnz\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.2.0\\microsoft.data.sqlclient.sni.runtime.5.2.0.nupkg.sha512",
+    "C:\\Users\\bdmtnz\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\bdmtnz\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\bdmtnz\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\bdmtnz\\.nuget\\packages\\microsoft.identity.client\\4.56.0\\microsoft.identity.client.4.56.0.nupkg.sha512",
     "C:\\Users\\bdmtnz\\.nuget\\packages\\microsoft.identity.client.extensions.msal\\4.56.0\\microsoft.identity.client.extensions.msal.4.56.0.nupkg.sha512",
     "C:\\Users\\bdmtnz\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.35.0\\microsoft.identitymodel.abstractions.6.35.0.nupkg.sha512",

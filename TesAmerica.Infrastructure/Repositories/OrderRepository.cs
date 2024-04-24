@@ -34,9 +34,9 @@ namespace TesAmerica.Infrastructure.Repositories
             }
         }
 
-        public IEnumerable<Order> FindByForeignKey(string foreignkey)
+        public ICollection<Order> FindByForeignKey(string foreignkey)
         {
-            IEnumerable<Order> result = new List<Order>();
+            ICollection<Order> result = new List<Order>();
             var cmdBuilder = new StringBuilder();
             cmdBuilder.AppendLine("SELECT");
             cmdBuilder.AppendLine(" * ");
@@ -54,7 +54,7 @@ namespace TesAmerica.Infrastructure.Repositories
                         Date = Convert.ToDateTime(reader["FECHA"]),
                         SellerId = $"{reader["VENDEDOR"]}"
                     };
-                    result.Append(department);
+                    result.Add(department);
                 }
             }
             return result;
@@ -85,9 +85,9 @@ namespace TesAmerica.Infrastructure.Repositories
             return result;
         }
 
-        public IEnumerable<Order> GetAll()
+        public ICollection<Order> GetAll()
         {
-            IEnumerable<Order> result = new List<Order>();
+            ICollection<Order> result = new List<Order>();
             var cmdBuilder = new StringBuilder();
             cmdBuilder.AppendLine("SELECT");
             cmdBuilder.AppendLine(" * ");
@@ -104,7 +104,7 @@ namespace TesAmerica.Infrastructure.Repositories
                         Date = Convert.ToDateTime(reader["FECHA"]),
                         SellerId = $"{reader["VENDEDOR"]}"
                     };
-                    result.Append(department);
+                    result.Add(department);
                 }
             }
             return result;

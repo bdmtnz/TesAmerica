@@ -32,9 +32,9 @@ namespace TesAmerica.Infrastructure.Repositories
             }
         }
 
-        public IEnumerable<Department> FindByForeignKey(string foreignkey)
+        public ICollection<Department> FindByForeignKey(string foreignkey)
         {
-            IEnumerable<Department> result = new List<Department>();
+            ICollection<Department> result = new List<Department>();
             var cmdBuilder = new StringBuilder();
             cmdBuilder.AppendLine("SELECT");
             cmdBuilder.AppendLine(" * ");
@@ -50,7 +50,7 @@ namespace TesAmerica.Infrastructure.Repositories
                         Id = $"{reader["CODDEP"]}",
                         Name = $"{reader["NOMBRE"]}"
                     };
-                    result.Append(department);
+                    result.Add(department);
                 }
             }
             return result;
@@ -79,9 +79,9 @@ namespace TesAmerica.Infrastructure.Repositories
             return result;
         }
 
-        public IEnumerable<Department> GetAll()
+        public ICollection<Department> GetAll()
         {
-            IEnumerable<Department> result = new List<Department>();
+            ICollection<Department> result = new List<Department>();
             var cmdBuilder = new StringBuilder();
             cmdBuilder.AppendLine("SELECT");
             cmdBuilder.AppendLine(" * ");
@@ -96,7 +96,7 @@ namespace TesAmerica.Infrastructure.Repositories
                         Id = $"{reader["CODDEP"]}",
                         Name = $"{reader["NOMBRE"]}"
                     };
-                    result.Append(department);
+                    result.Add(department);
                 }
             }
             return result;

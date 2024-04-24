@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TesAmerica.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+69279070d815e1eda586ffb065be16350ab96572")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb0c6e5856274cf379395a08aef5331ff063846e")]
 [assembly: System.Reflection.AssemblyProductAttribute("TesAmerica.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TesAmerica.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

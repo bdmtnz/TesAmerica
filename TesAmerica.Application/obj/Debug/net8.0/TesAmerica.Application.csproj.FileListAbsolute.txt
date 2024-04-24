@@ -14,3 +14,5 @@ C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Application\obj
 C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Application\obj\Debug\net8.0\refint\TesAmerica.Application.dll
 C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Application\obj\Debug\net8.0\TesAmerica.Application.pdb
 C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Application\obj\Debug\net8.0\ref\TesAmerica.Application.dll
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Application\bin\Debug\net8.0\TesAmerica.Infrastructure.dll
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Application\bin\Debug\net8.0\TesAmerica.Infrastructure.pdb

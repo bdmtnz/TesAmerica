@@ -72,3 +72,5 @@ C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Api\obj\Debug\n
 C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Api\obj\Debug\net8.0\TesAmerica.Api.pdb
 C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Api\obj\Debug\net8.0\TesAmerica.Api.genruntimeconfig.cache
 C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Api\obj\Debug\net8.0\ref\TesAmerica.Api.dll
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Api\bin\Debug\net8.0\TesAmerica.Infrastructure.dll
+C:\Users\bdmtnz\Documents\Proyectos\Cursos\TesAmerica\TesAmerica.Api\bin\Debug\net8.0\TesAmerica.Infrastructure.pdb

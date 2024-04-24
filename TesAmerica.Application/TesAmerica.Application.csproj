@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TesAmerica.Domain\TesAmerica.Domain.csproj" />
+    <ProjectReference Include="..\TesAmerica.Infrastructure\TesAmerica.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

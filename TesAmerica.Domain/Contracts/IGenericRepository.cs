@@ -10,9 +10,9 @@ namespace TesAmerica.Domain.Contracts
 {
     public interface IGenericRepository<T> where T : class, IEntity
     {
-        IEnumerable<T> GetAll();
+        ICollection<T> GetAll();
         T? FindByKey(string key);
-        IEnumerable<T> FindByForeignKey(string foreignkey);
+        ICollection<T> FindByForeignKey(string foreignkey);
         void Add(T entity);
         void Update(T entity);
     }

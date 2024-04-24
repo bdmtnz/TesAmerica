@@ -61,9 +61,9 @@ namespace TesAmerica.Infrastructure.Repositories
             return result;
         }
 
-        public IEnumerable<Item> FindByForeignKey(string foreigkey)
+        public ICollection<Item> FindByForeignKey(string foreigkey)
         {
-            IEnumerable<Item> result = new List<Item>();
+            ICollection<Item> result = new List<Item>();
             var cmdBuilder = new StringBuilder();
             cmdBuilder.AppendLine("SELECT");
             cmdBuilder.AppendLine(" * ");
@@ -82,15 +82,15 @@ namespace TesAmerica.Infrastructure.Repositories
                         Quantity = Convert.ToDouble(reader["CANTIDAD"]),
                         Subtotal = Convert.ToDouble(reader["SUBTOTAL"])
                     };
-                    result.Append(item);
+                    result.Add(item);
                 }
             }
             return result;
         }
 
-        public IEnumerable<Item> GetAll()
+        public ICollection<Item> GetAll()
         {
-            IEnumerable<Item> result = new List<Item>();
+            ICollection<Item> result = new List<Item>();
             var cmdBuilder = new StringBuilder();
             cmdBuilder.AppendLine("SELECT");
             cmdBuilder.AppendLine(" * ");
@@ -108,7 +108,7 @@ namespace TesAmerica.Infrastructure.Repositories
                         Quantity = Convert.ToDouble(reader["CANTIDAD"]),
                         Subtotal = Convert.ToDouble(reader["SUBTOTAL"])
                     };
-                    result.Append(item);
+                    result.Add(item);
                 }
             }
             return result;

@@ -6,16 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using TesAmerica.Domain;
 using TesAmerica.Domain.Contracts;
+using TesAmerica.Domain.Contracts.CustomRepositories;
 using TesAmerica.Infrastructure.Repositories;
 
 namespace TesAmerica.Infrastructure
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly SqlConnection _connection;
+        private readonly IDbConnection<SqlConnection, SqlTransaction> _connection;
         private  SqlTransaction? _transaction;
 
-        public UnitOfWork(SqlConnection connection)
+        public UnitOfWork(IDbConnection<SqlConnection, SqlTransaction> connection)
         {
             _connection = connection;
         }
@@ -47,39 +48,44 @@ namespace TesAmerica.Infrastructure
             _connection.Close();
         }
 
-        public IGenericRepository<City> CityRepository()
+        public IGenericRepository<City> GetCityRepository()
         {
-            throw new NotImplementedException();
+            return new CityRepository(_connection.GetConnection());
         }
 
-        public IGenericRepository<Client> ClientRepository()
+        public IGenericRepository<Client> GetClientRepository()
         {
-            throw new NotImplementedException();
+            return new ClientRepository(_connection.GetConnection());
         }
 
-        public IGenericRepository<Department> DepartmentRepository()
+        public IGenericRepository<Department> GetDepartmentRepository()
         {
-            return new DepartmentRepository(_connection);
+            return new DepartmentRepository(_connection.GetConnection());
         }
 
-        public IGenericRepository<Item> ItemRepository()
+        public IGenericRepository<Item> GetItemRepository()
         {
-            throw new NotImplementedException();
+            return new ItemRepository(_connection.GetConnection());
         }
 
-        public IGenericRepository<Order> OrderRepository()
+        public IGenericRepository<Order> GetOrderRepository()
         {
-            throw new NotImplementedException();
+            return new OrderRepository(_connection.GetConnection());
         }
 
-        public IGenericRepository<Product> ProductRepository()
+        public IGenericRepository<Product> GetProductRepository()
         {
-            throw new NotImplementedException();
+            return new ProductRepository(_connection.GetConnection());
         }
 
-        public IGenericRepository<Seller> SellerRepository()
+        public IGenericRepository<Seller> GetSellerRepository()
         {
-            throw new NotImplementedException();
+            return new SellerRepository(_connection.GetConnection());
+        }
+
+        public IDepartmentReportRepository GetDepartmentReportRepository()
+        {
+            return new DepartmentReportRepository(_connection.GetConnection());
         }
     }
 }
