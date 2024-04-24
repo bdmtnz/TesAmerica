@@ -10,21 +10,23 @@ using TesAmerica.Domain.Contracts;
 
 namespace TesAmerica.Infrastructure.Repositories
 {
-    public class DepartmentRepository : IGenericRepository<Department>
+    public class OrderRepository : IGenericRepository<Order>
     {
         private readonly SqlConnection _connection;
 
-        public DepartmentRepository(SqlConnection connection) {
+        public OrderRepository(SqlConnection connection) {
             _connection = connection;
         }
 
-        public void Add(Department entity)
+        public void Add(Order entity)
         {
             var cmdBuilder = new StringBuilder();
-            cmdBuilder.AppendLine("INSERT INTO DEPARTAMENTO VALUES");
+            cmdBuilder.AppendLine("INSERT INTO PEDIDO VALUES");
             cmdBuilder.AppendLine("(");
             cmdBuilder.AppendLine($"    '{entity.Id}', ");
-            cmdBuilder.AppendLine($"    '{entity.Name}' ");
+            cmdBuilder.AppendLine($"    '{entity.ClientId}', ");
+            cmdBuilder.AppendLine($"    '{entity.Date}', ");
+            cmdBuilder.AppendLine($"    '{entity.SellerId}' ");
             cmdBuilder.AppendLine(")");
             using (var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
             {
@@ -32,45 +34,25 @@ namespace TesAmerica.Infrastructure.Repositories
             }
         }
 
-        public Department? FindByKey(string key)
+        public IEnumerable<Order> FindByForeignKey(string foreignkey)
         {
-            Department? result = default;
+            IEnumerable<Order> result = new List<Order>();
             var cmdBuilder = new StringBuilder();
-            cmdBuilder.AppendLine("SELECT TOP(1)");
+            cmdBuilder.AppendLine("SELECT");
             cmdBuilder.AppendLine(" * ");
-            cmdBuilder.AppendLine("FROM DEPARTAMENTO");
-            cmdBuilder.AppendLine($"WHERE CODDEP = '{key}'");
+            cmdBuilder.AppendLine("FROM PEDIDO");
+            cmdBuilder.AppendLine($"WHERE VENDEDOR = '{foreignkey}'");
             using (var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
             {
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    result = new Department
+                    var department = new Order
                     {
-                        Id = $"{reader["CODDEP"]}",
-                        Name = $"{reader["NOMBRE"]}"
-                    };
-                }
-            }
-            return result;
-        }
-
-        public IEnumerable<Department> GetAll()
-        {
-            IEnumerable<Department> result = new List<Department>();
-            var cmdBuilder = new StringBuilder();
-            cmdBuilder.AppendLine("SELECT");
-            cmdBuilder.AppendLine(" * ");
-            cmdBuilder.AppendLine("FROM DEPARTAMENTO");
-            using(var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
-            {
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    var department = new Department
-                    {
-                        Id = $"{reader["CODDEP"]}",
-                        Name = $"{reader["NOMBRE"]}"
+                        Id = $"{reader["NUMPEDIDO"]}",
+                        ClientId = $"{reader["CLIENTE"]}",
+                        Date = Convert.ToDateTime(reader["FECHA"]),
+                        SellerId = $"{reader["VENDEDOR"]}"
                     };
                     result.Append(department);
                 }
@@ -78,13 +60,64 @@ namespace TesAmerica.Infrastructure.Repositories
             return result;
         }
 
-        public void Update(Department entity)
+        public Order? FindByKey(string key)
+        {
+            Order? result = default;
+            var cmdBuilder = new StringBuilder();
+            cmdBuilder.AppendLine("SELECT TOP(1)");
+            cmdBuilder.AppendLine(" * ");
+            cmdBuilder.AppendLine("FROM PEDIDO");
+            cmdBuilder.AppendLine($"WHERE NUMPEDIDO = '{key}'");
+            using (var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
+            {
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    result = new Order
+                    {
+                        Id = $"{reader["NUMPEDIDO"]}",
+                        ClientId = $"{reader["CLIENTE"]}",
+                        Date = Convert.ToDateTime(reader["FECHA"]),
+                        SellerId = $"{reader["VENDEDOR"]}"
+                    };
+                }
+            }
+            return result;
+        }
+
+        public IEnumerable<Order> GetAll()
+        {
+            IEnumerable<Order> result = new List<Order>();
+            var cmdBuilder = new StringBuilder();
+            cmdBuilder.AppendLine("SELECT");
+            cmdBuilder.AppendLine(" * ");
+            cmdBuilder.AppendLine("FROM PEDIDO");
+            using(var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
+            {
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var department = new Order
+                    {
+                        Id = $"{reader["NUMPEDIDO"]}",
+                        ClientId = $"{reader["CLIENTE"]}",
+                        Date = Convert.ToDateTime(reader["FECHA"]),
+                        SellerId = $"{reader["VENDEDOR"]}"
+                    };
+                    result.Append(department);
+                }
+            }
+            return result;
+        }
+
+        public void Update(Order entity)
         {
             var cmdBuilder = new StringBuilder();
-            cmdBuilder.AppendLine("UPDATE DEPARTAMENTO");
+            cmdBuilder.AppendLine("UPDATE PEDIDO");
             cmdBuilder.AppendLine("SET");
-            cmdBuilder.AppendLine($"    NOMBRE = '{entity.Name}' ");
-            cmdBuilder.AppendLine($"WHERE CODDEP = '{entity.Id}'");
+            cmdBuilder.AppendLine($"    FECHA = '{entity.Date}', ");
+            cmdBuilder.AppendLine($"    VENDEDOR = '{entity.SellerId}' ");
+            cmdBuilder.AppendLine($"WHERE NUMPEDIDO = '{entity.Id}'");
             using (var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
             {
                 cmd.ExecuteNonQuery();

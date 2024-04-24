@@ -10,21 +10,23 @@ using TesAmerica.Domain.Contracts;
 
 namespace TesAmerica.Infrastructure.Repositories
 {
-    public class DepartmentRepository : IGenericRepository<Department>
+    public class ProductRepository : IGenericRepository<Product>
     {
         private readonly SqlConnection _connection;
 
-        public DepartmentRepository(SqlConnection connection) {
+        public ProductRepository(SqlConnection connection) {
             _connection = connection;
         }
 
-        public void Add(Department entity)
+        public void Add(Product entity)
         {
             var cmdBuilder = new StringBuilder();
-            cmdBuilder.AppendLine("INSERT INTO DEPARTAMENTO VALUES");
+            cmdBuilder.AppendLine("INSERT INTO PRODUCTO VALUES");
             cmdBuilder.AppendLine("(");
             cmdBuilder.AppendLine($"    '{entity.Id}', ");
-            cmdBuilder.AppendLine($"    '{entity.Name}' ");
+            cmdBuilder.AppendLine($"    '{entity.Name}', ");
+            cmdBuilder.AppendLine($"    '{entity.Family}', ");
+            cmdBuilder.AppendLine($"    {entity.Price} ");
             cmdBuilder.AppendLine(")");
             using (var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
             {
@@ -32,45 +34,25 @@ namespace TesAmerica.Infrastructure.Repositories
             }
         }
 
-        public Department? FindByKey(string key)
+        public IEnumerable<Product> FindByForeignKey(string foreignkey)
         {
-            Department? result = default;
+            IEnumerable<Product> result = new List<Product>();
             var cmdBuilder = new StringBuilder();
-            cmdBuilder.AppendLine("SELECT TOP(1)");
+            cmdBuilder.AppendLine("SELECT");
             cmdBuilder.AppendLine(" * ");
-            cmdBuilder.AppendLine("FROM DEPARTAMENTO");
-            cmdBuilder.AppendLine($"WHERE CODDEP = '{key}'");
+            cmdBuilder.AppendLine("FROM PRODUCTO");
+            cmdBuilder.AppendLine($"WHERE NOMBRE LIKE '%{foreignkey}%'");
             using (var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
             {
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    result = new Department
+                    var department = new Product
                     {
-                        Id = $"{reader["CODDEP"]}",
-                        Name = $"{reader["NOMBRE"]}"
-                    };
-                }
-            }
-            return result;
-        }
-
-        public IEnumerable<Department> GetAll()
-        {
-            IEnumerable<Department> result = new List<Department>();
-            var cmdBuilder = new StringBuilder();
-            cmdBuilder.AppendLine("SELECT");
-            cmdBuilder.AppendLine(" * ");
-            cmdBuilder.AppendLine("FROM DEPARTAMENTO");
-            using(var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
-            {
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    var department = new Department
-                    {
-                        Id = $"{reader["CODDEP"]}",
-                        Name = $"{reader["NOMBRE"]}"
+                        Id = $"{reader["CODPROD"]}",
+                        Name = $"{reader["NOMBRE"]}",
+                        Family = $"{reader["FAMILIA"]}",
+                        Price = Convert.ToDouble(reader["PRECIO"])
                     };
                     result.Append(department);
                 }
@@ -78,13 +60,65 @@ namespace TesAmerica.Infrastructure.Repositories
             return result;
         }
 
-        public void Update(Department entity)
+        public Product? FindByKey(string key)
+        {
+            Product? result = default;
+            var cmdBuilder = new StringBuilder();
+            cmdBuilder.AppendLine("SELECT TOP(1)");
+            cmdBuilder.AppendLine(" * ");
+            cmdBuilder.AppendLine("FROM PRODUCTO");
+            cmdBuilder.AppendLine($"WHERE CODPROD = '{key}'");
+            using (var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
+            {
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    result = new Product
+                    {
+                        Id = $"{reader["CODPROD"]}",
+                        Name = $"{reader["NOMBRE"]}",
+                        Family = $"{reader["FAMILIA"]}",
+                        Price = Convert.ToDouble(reader["PRECIO"])
+                    };
+                }
+            }
+            return result;
+        }
+
+        public IEnumerable<Product> GetAll()
+        {
+            IEnumerable<Product> result = new List<Product>();
+            var cmdBuilder = new StringBuilder();
+            cmdBuilder.AppendLine("SELECT");
+            cmdBuilder.AppendLine(" * ");
+            cmdBuilder.AppendLine("FROM PRODUCTO");
+            using(var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
+            {
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var department = new Product
+                    {
+                        Id = $"{reader["CODPROD"]}",
+                        Name = $"{reader["NOMBRE"]}",
+                        Family = $"{reader["FAMILIA"]}",
+                        Price = Convert.ToDouble(reader["PRECIO"])
+                    };
+                    result.Append(department);
+                }
+            }
+            return result;
+        }
+
+        public void Update(Product entity)
         {
             var cmdBuilder = new StringBuilder();
-            cmdBuilder.AppendLine("UPDATE DEPARTAMENTO");
+            cmdBuilder.AppendLine("UPDATE PRODUCTO");
             cmdBuilder.AppendLine("SET");
-            cmdBuilder.AppendLine($"    NOMBRE = '{entity.Name}' ");
-            cmdBuilder.AppendLine($"WHERE CODDEP = '{entity.Id}'");
+            cmdBuilder.AppendLine($"    NOMBRE = '{entity.Name}', ");
+            cmdBuilder.AppendLine($"    FAMILIA = '{entity.Family}' ");
+            cmdBuilder.AppendLine($"    PRECIO = {entity.Price} ");
+            cmdBuilder.AppendLine($"WHERE CODPROD = '{entity.Id}'");
             using (var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
             {
                 cmd.ExecuteNonQuery();

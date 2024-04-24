@@ -32,6 +32,30 @@ namespace TesAmerica.Infrastructure.Repositories
             }
         }
 
+        public IEnumerable<Department> FindByForeignKey(string foreignkey)
+        {
+            IEnumerable<Department> result = new List<Department>();
+            var cmdBuilder = new StringBuilder();
+            cmdBuilder.AppendLine("SELECT");
+            cmdBuilder.AppendLine(" * ");
+            cmdBuilder.AppendLine("FROM DEPARTAMENTO");
+            cmdBuilder.AppendLine($"WHERE NOMBRE LIKE '%{foreignkey}%'");
+            using (var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
+            {
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    var department = new Department
+                    {
+                        Id = $"{reader["CODDEP"]}",
+                        Name = $"{reader["NOMBRE"]}"
+                    };
+                    result.Append(department);
+                }
+            }
+            return result;
+        }
+
         public Department? FindByKey(string key)
         {
             Department? result = default;
