@@ -12,6 +12,7 @@ namespace TesAmerica.Domain.Contracts
     {
         IEnumerable<T> GetAll();
         T? FindByKey(string key);
+        IEnumerable<T> FindByForeignKey(string foreignkey);
         void Add(T entity);
         void Update(T entity);
     }

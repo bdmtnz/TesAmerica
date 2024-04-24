@@ -18,7 +18,7 @@ namespace TesAmerica.Domain
         /// </summary>
         public string Name { get; set; }
         /// <summary>
-        /// DIRECTION is db column for this field
+        /// DIRECCION is db column for this field
         /// </summary>
         public string Address { get; set; }
         /// <summary>

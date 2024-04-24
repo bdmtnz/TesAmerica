@@ -7,6 +7,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+/*
+    var _config = app.Services.GetRequiredService<IConfiguration>();
+    var connectionString = _config.GetConnectionString("DefaultConnection");
+
+    // Build the SqlConnection and execute the SQL command
+    SqlConnection conn = new SqlConnection(connectionString)
+*/
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
