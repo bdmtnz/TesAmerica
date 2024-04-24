@@ -39,7 +39,6 @@ namespace TesAmerica.Infrastructure.Repositories
             cmdBuilder.AppendLine("JOIN CLIENTE C ON P.CLIENTE = C.CODCLI  ");
             cmdBuilder.AppendLine("JOIN CIUDAD CI ON C.CIUDAD = CI.CODCIU  ");
             cmdBuilder.AppendLine("JOIN DEPARTAMENTO D ON CI.DEPARTAMENTO = D.CODDEP  ");
-            //cmdBuilder.AppendLine("WHERE FECHA BETWEEN '2017-09-01 00:00:00.000' AND '2017-09-03 16:48:00.000'  ");
             var startString = Utils.GetStartDbDate(start);
             var endString = Utils.GetEndDbDate(end);
             cmdBuilder.AppendLine($"WHERE FECHA BETWEEN '{startString}' AND '{endString}'  ");

@@ -7,6 +7,16 @@ using TesAmerica.Domain.Base;
 
 namespace TesAmerica.Domain
 {
+    public class SellerReport
+    {
+        public string SellerId { get; set; }
+        public string SellerName { get; set; }
+        public double Subtotal { get; set; }
+        public double Comission { get; set; }
+        public int Year { get; set; }
+        public int Month { get; set; }
+    }
+
     public class Seller : IEntity
     {
         /// <summary>

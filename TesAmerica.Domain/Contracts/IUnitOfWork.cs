@@ -24,5 +24,6 @@ namespace TesAmerica.Domain.Contracts
 
         // Custom repos
         IDepartmentReportRepository GetDepartmentReportRepository();
+        ISellerReportRepository GetSellerReportRepository();
     }
 }

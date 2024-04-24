@@ -87,5 +87,10 @@ namespace TesAmerica.Infrastructure
         {
             return new DepartmentReportRepository(_connection.GetConnection());
         }
+
+        public ISellerReportRepository GetSellerReportRepository()
+        {
+            return new SellerReportRepository(_connection.GetConnection());
+        }
     }
 }
