@@ -96,9 +96,18 @@ namespace TesAmerica.Infrastructure.Repositories
             ICollection<Order> result = new List<Order>();
             var cmdBuilder = new StringBuilder();
             cmdBuilder.AppendLine("SELECT");
-            cmdBuilder.AppendLine(" * ");
-            cmdBuilder.AppendLine("FROM PEDIDO");
-            using(var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
+            cmdBuilder.AppendLine(" P.*, ");
+            cmdBuilder.AppendLine(" I.SUBTOTAL ");
+            cmdBuilder.AppendLine("FROM PEDIDO P");
+            cmdBuilder.AppendLine("JOIN (");
+            cmdBuilder.AppendLine(" SELECT");
+            cmdBuilder.AppendLine("     NUMPEDIDO,");
+            cmdBuilder.AppendLine("     SUM(SUBTOTAL) AS SUBTOTAL");
+            cmdBuilder.AppendLine(" FROM ITEMS");
+            cmdBuilder.AppendLine(" GROUP BY NUMPEDIDO");
+            cmdBuilder.AppendLine(") I ON P.NUMPEDIDO = I.NUMPEDIDO");
+            cmdBuilder.AppendLine("ORDER BY P.FECHA DESC");
+            using (var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
             {
                 var reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -108,7 +117,8 @@ namespace TesAmerica.Infrastructure.Repositories
                         Id = $"{reader["NUMPEDIDO"]}",
                         ClientId = $"{reader["CLIENTE"]}",
                         Date = Convert.ToDateTime(reader["FECHA"]),
-                        SellerId = $"{reader["VENDEDOR"]}"
+                        SellerId = $"{reader["VENDEDOR"]}",
+                        Subtotal = Convert.ToDouble(reader["SUBTOTAL"])
                     };
                     result.Add(department);
                 }

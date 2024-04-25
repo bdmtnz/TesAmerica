@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TesAmerica.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+52cfedcdc2fbdbfee12ead1ee91f73544d9056c7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c086ac39e0f00f8bc8b8cc376f2f8500ba810ac")]
 [assembly: System.Reflection.AssemblyProductAttribute("TesAmerica.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TesAmerica.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

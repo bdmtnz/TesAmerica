@@ -25,5 +25,6 @@ namespace TesAmerica.Domain
         /// VENDEDOR is db column for this field
         /// </summary>
         public string SellerId { get; set; }
+        public double Subtotal { get; set; }
     }
 }
