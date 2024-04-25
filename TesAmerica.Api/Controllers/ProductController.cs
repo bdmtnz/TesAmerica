@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TesAmerica.Application.Base;
 using TesAmerica.Application.ProductHandler.Get;
+using TesAmerica.Application.ProductHandlers.GetByName;
 using TesAmerica.Domain;
 
 namespace TesAmerica.Api.Controllers
@@ -20,6 +21,13 @@ namespace TesAmerica.Api.Controllers
         public async Task<ActionResult<ApiResponse<IEnumerable<Product>>>> Get()
         {
             var handled = await _mediator.Send(new ProductGetRequest());
+            return Ok(handled);
+        }
+
+        [HttpPost(Name = "GetProductsByName")]
+        public async Task<ActionResult<ApiResponse<IEnumerable<Product>>>> GetProductsByName(ProductGetByNameRequest request)
+        {
+            var handled = await _mediator.Send(request);
             return Ok(handled);
         }
     }

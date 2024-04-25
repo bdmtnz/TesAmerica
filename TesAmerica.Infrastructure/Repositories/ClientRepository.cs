@@ -47,7 +47,7 @@ namespace TesAmerica.Infrastructure.Repositories
             cmdBuilder.AppendLine("SELECT");
             cmdBuilder.AppendLine(" * ");
             cmdBuilder.AppendLine("FROM CLIENTE");
-            cmdBuilder.AppendLine($"WHERE PADRE = '{foreignkey}'");
+            cmdBuilder.AppendLine($"WHERE NOMBRE LIKE '%{foreignkey}%'");
             using (var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
             {
                 var reader = cmd.ExecuteReader();
@@ -60,7 +60,7 @@ namespace TesAmerica.Infrastructure.Repositories
                         Name = $"{reader["NOMBRE"]}",
                         Channel = $"{reader["CANAL"]}",
                         CityId = $"{reader["CIUDAD"]}",
-                        CreateAt = Convert.ToDateTime(reader["NOMBRE"]),
+                        CreateAt = Convert.ToDateTime(reader["FECHACREACION"]),
                         DadId = $"{reader["PADRE"]}",
                         Phone = $"{reader["TELEFONO"]}",
                         Quota = Convert.ToInt32(reader["CUPO"]),
@@ -91,7 +91,7 @@ namespace TesAmerica.Infrastructure.Repositories
                         Name = $"{reader["NOMBRE"]}",
                         Channel = $"{reader["CANAL"]}",
                         CityId = $"{reader["CIUDAD"]}",
-                        CreateAt = Convert.ToDateTime(reader["NOMBRE"]),
+                        CreateAt = Convert.ToDateTime(reader["FECHACREACION"]),
                         DadId = $"{reader["PADRE"]}",
                         Phone = $"{reader["TELEFONO"]}",
                         Quota = Convert.ToInt32(reader["CUPO"]),

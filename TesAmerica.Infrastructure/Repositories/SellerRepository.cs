@@ -40,7 +40,7 @@ namespace TesAmerica.Infrastructure.Repositories
             cmdBuilder.AppendLine("SELECT");
             cmdBuilder.AppendLine(" * ");
             cmdBuilder.AppendLine("FROM VENDEDOR");
-            cmdBuilder.AppendLine($"WHERE NOMBRE LIKE '%{foreignkey}%'");
+            cmdBuilder.AppendLine($"WHERE NOMBRE LIKE '%{foreignkey}%' AND ESTADO = 'Activo'");
             using (var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
             {
                 var reader = cmd.ExecuteReader();
