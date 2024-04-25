@@ -13,9 +13,14 @@ namespace TesAmerica.Infrastructure.Repositories
     public class OrderRepository : IGenericRepository<Order>
     {
         private readonly SqlConnection _connection;
+        private readonly SqlTransaction? _transaction;
 
-        public OrderRepository(SqlConnection connection) {
+        public OrderRepository(
+            SqlConnection connection,
+            SqlTransaction? transaction
+        ) {
             _connection = connection;
+            _transaction = transaction;
         }
 
         public void Add(Order entity)
@@ -25,11 +30,12 @@ namespace TesAmerica.Infrastructure.Repositories
             cmdBuilder.AppendLine("(");
             cmdBuilder.AppendLine($"    '{entity.Id}', ");
             cmdBuilder.AppendLine($"    '{entity.ClientId}', ");
-            cmdBuilder.AppendLine($"    '{entity.Date}', ");
+            cmdBuilder.AppendLine($"    '{entity.Date.ToString("s")}', ");
             cmdBuilder.AppendLine($"    '{entity.SellerId}' ");
             cmdBuilder.AppendLine(")");
             using (var cmd = new SqlCommand(cmdBuilder.ToString(), _connection))
             {
+                if(_transaction != null ) cmd.Transaction = _transaction;
                 cmd.ExecuteNonQuery();
             }
         }

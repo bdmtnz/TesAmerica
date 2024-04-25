@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TesAmerica.Application.Base;
 using TesAmerica.Application.OrderHandlers.Get;
+using TesAmerica.Application.OrderHandlers.Persist;
 using TesAmerica.Domain;
 
 namespace TesAmerica.Api.Controllers
@@ -23,6 +24,11 @@ namespace TesAmerica.Api.Controllers
             return Ok(handled);
         }
 
-
+        [HttpPost(Name = "Post")]
+        public async Task<ActionResult<ApiResponse<IEnumerable<Order>>>> Post(OrderPersistRequest request)
+        {
+            var handled = await _mediator.Send(request);
+            return Ok(handled);
+        }
     }
 }

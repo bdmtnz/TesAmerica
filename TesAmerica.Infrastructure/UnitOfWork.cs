@@ -14,7 +14,7 @@ namespace TesAmerica.Infrastructure
     public class UnitOfWork : IUnitOfWork
     {
         private readonly IDbConnection<SqlConnection, SqlTransaction> _connection;
-        private  SqlTransaction? _transaction;
+        private SqlTransaction? _transaction;
 
         public UnitOfWork(IDbConnection<SqlConnection, SqlTransaction> connection)
         {
@@ -65,12 +65,12 @@ namespace TesAmerica.Infrastructure
 
         public IGenericRepository<Item> GetItemRepository()
         {
-            return new ItemRepository(_connection.GetConnection());
+            return new ItemRepository(_connection.GetConnection(), _transaction);
         }
 
         public IGenericRepository<Order> GetOrderRepository()
         {
-            return new OrderRepository(_connection.GetConnection());
+            return new OrderRepository(_connection.GetConnection(), _transaction);
         }
 
         public IGenericRepository<Product> GetProductRepository()
